@@ -1,0 +1,85 @@
+/* hide scrollbar but allow scrolling */
+.rt-hideScrollbar {
+  /* for Internet Explorer, Edge */
+  -ms-overflow-style: none;
+  /* for Firefox */
+  scrollbar-width: none;
+  overflow-y: scroll;
+  &::-webkit-scrollbar { display: none; /* for Chrome, Safari, and Opera */ }
+}
+
+/* Custom scrollbar styling */
+.rt-customScrollbar {
+  @apply scroll-smooth;
+  &::-webkit-scrollbar {
+    @apply w-1 h-2 bg-transparent rounded-lg;
+    box-shadow: inset 0 0 5px #b9b8bb;
+  }
+  &::-webkit-scrollbar-thumb { @apply w-1 h-2 bg-primary rounded-lg }
+}
+
+/* Theme Tab Styling Start here */
+.tabs__nav { 
+  @apply mb-6 flex gap-4 min-h-[34px] sm:gap-5 overflow-y-hidden border-b-2 border-b-secondary/40 md:gap-8 xs2:overflow-x-auto;
+  li { @apply relative text-black-100 cursor-pointer whitespace-nowrap transition-all duration-200 ease-in-out after:absolute after:inset-x-0 after:bottom-0 after:h-[3px] after:translate-y-[0] after:transition-all after:duration-200 after:ease-in-out} 
+}
+// .tabs__nav li.active { @apply !text-primary after:bg-primary }
+/* Theme Tab Styling End here */
+
+
+/* Theme Button Styling Start here */
+.btn {
+  @apply cursor-pointer flex justify-center items-center font-normal rounded-lg disabled:cursor-not-allowed whitespace-nowrap transition-all ease-in-out duration-[0.4s] focus:outline-none;
+
+  &:disabled { @apply cursor-not-allowed }
+
+  &.btn-md { @apply p-4 text-sm }
+  &.btn-sm { @apply text-sm py-2 min-w-32 }
+  &.btn-lg { @apply py-2.5 lg:py-[0.75rem] px-5 lg:px-[1.75rem]; }
+
+  &.btn-primary {
+    @apply text-white bg-primary hover:bg-secondary active:bg-primary/90 active:text-white/80 disabled:opacity-30 disabled:hover:bg-primary/10;
+    &:disabled { @apply opacity-30 }
+    background-size:300% 100%;
+    background-image: linear-gradient(to right, #30C5D2, #471069, #30C5D2, #471069);
+  }
+  &.btn-primary-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-white;
+    &:disabled { @apply opacity-30 hover:text-primary hover:bg-white }
+  }
+}
+
+/* Theme Modal Box Styling Start here */
+.modal { @apply flex items-center justify-center min-h-full h-full pt-4 xs:px-0 px-4 md:px-8 py-4 md:py-10 text-center md:p-0 font-ubuntu }
+.modal_backdrop { @apply fixed inset-0 bg-black-100 bg-opacity-25 transition-opacity }
+.modal_close { @apply absolute top-5 right-5 flex justify-center items-center z-50 }
+.modal_close_button { @apply w-7 h-7 border border-black-8 rounded-full text-sm flex items-center justify-center text-black-60 focus:outline-none }
+.modal_body { @apply inline-block xs:mx-4 sm:w-auto w-full text-center transform transition-all align-middle }
+.theme_modal { @apply flex w-full flex-col items-center rounded-20 bg-white p-5 md:p-10 }
+// /* Theme Modal Box Styling End here */
+
+
+// /* Theme DropDown Styling Start here */
+  .theme__dropdown { @apply relative inline-block text-left w-auto }
+  .theme__dropdown__button { @apply relative flex overflow-visible }
+  .theme__dropdown__menu { @apply absolute z-10 mt-2 w-[14.5rem] rounded-xl border-0 bg-white py-2 px-4 shadow-dropdown_shadow right-0 lg:origin-top-right }
+
+// Basic table
+.table__responsive { @apply block w-full overflow-x-auto scroll-smooth border border-black-8 rounded-xl }
+.table { 
+  @apply w-full;
+  thead tr th { @apply bg-black-8 p-4 text-start text-xs text-black-100 font-medium whitespace-nowrap; }
+  tbody tr td { @apply text-start text-sm text-black-48 align-middle whitespace-nowrap; }
+}
+.theme__table {
+  thead{
+    tr{
+      th{@apply last:text-right}
+    }
+  } 
+  tbody{
+    tr{
+      td { @apply bg-white p-4 last:text-right} 
+    }
+  } 
+}

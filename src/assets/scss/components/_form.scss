@@ -1,0 +1,289 @@
+a, input, button, select, textarea { @apply focus:outline-none }
+
+label { @apply text-xs text-black-100 font-medium block; }
+label sup { @apply top-0 }
+
+
+/* Theme Input Styling Start here */
+.rt-formGroup {
+  @apply flex flex-col text-left gap-2 text-black-100;
+  &.rt-formGroupV2 { @apply flex-row }
+}
+.rt-formGroupV2 {
+  label { @apply w-1/3 shrink-0 text-black-100 }
+}
+.rt-themeInput { @apply block p-4 w-full text-sm leading-4 text-black-100 bg-white rounded-md border border-black-6 appearance-none outline-none focus:outline-none focus:shadow-input_shadow focus:border-secondary placeholder:text-black-44 focus:ring-0 #{!important};
+  .rt-formGroupV2 & { @apply rounded-none p-0 border-x-0 border-t-0 border-black-100; }
+}
+.rt-errorMessage { @apply mt-1 flex items-center gap-1 w-full text-start text-sm text-danger }
+.rt-themeInput.rt-error { @apply border-black-100 }
+.rt-themeSearch { @apply block p-3 pr-10 w-full text-sm leading-4 text-black-100 bg-white rounded-md border border-black-6 appearance-none outline-none focus:outline-none focus:shadow-input_shadow focus:border-secondary placeholder:text-black-44 focus:ring-0 #{!important}; }
+.themeSearchIcon { @apply absolute top-1/2 -translate-y-1/2 right-2 text-black-48 }
+/* Theme Input Styling End here */
+
+
+/* Theme CheckBox Styling Start here */
+.rt-themeCheckBox {
+  @apply relative flex justify-start items-center;
+  input {
+    @apply absolute top-0 left-0 invisible opacity-0;
+    &:checked {
+      + label {
+        @apply before:bg-black-100;
+        svg { @apply visible opacity-100 }
+      }
+      &:disabled {
+        + label { @apply before:bg-black-100 }
+      }
+    }
+    &:disabled {
+      + label { @apply cursor-not-allowed opacity-50 before:border-black-100; filter: none; }
+    }
+  }
+  label {
+    @apply flex gap-2 text-sm text-black-64 font-normal leading-[16px] truncate w-full cursor-pointer items-center before:transition-all before:duration-300 before:top-0 before:left-0 before:w-[18px] before:h-[18px] before:border before:border-black-8 before:rounded-md before:shrink-0 before:bg-black-8;
+    svg { @apply absolute top-1/2 left-[1px] p-[2px] invisible opacity-0 text-white transition-all duration-300 -translate-y-1/2 }
+    span { @apply block }
+  }
+
+  &.rt-dark {
+    label { @apply before:border-black-8; }
+    &:disabled { @apply opacity-30 }
+    input:checked {
+      + label { @apply before:bg-black-100 before:border-black-100; }
+    }
+  }
+  &.rt-secondary {
+    label { @apply before:border-black-8; }
+    &:disabled { @apply opacity-30 }
+    input:checked {
+      + label { @apply before:bg-secondary before:border-secondary; }
+    }
+  }
+  &.rt-success {
+    label { @apply before:border-success; }
+    &:disabled { @apply opacity-30 }
+    input:checked {
+      + label { @apply before:bg-success; }
+    }
+  }
+  &.rt-danger {
+    label { @apply before:border-danger; }
+    &:disabled { @apply opacity-30 }
+    input:checked {
+      + label { @apply before:bg-danger; }
+    }
+  }
+
+
+  &.rt-sm {
+    label {
+      @apply text-sm before:w-5 before:h-5 rounded-[4px];
+      svg { @apply top-1/2 left-[2px] }
+    }
+  }
+  &.rt-lg {
+    label {
+      @apply text-lg before:w-7 before:h-7 rounded-lg;
+      svg { @apply top-1/2 left-[6px] }
+    }
+  }
+}
+/* Theme CheckBox Styling End here */
+
+
+
+/* Theme Radio Styling Start here */
+.rt-themeRadio {
+  @apply relative;
+  input {
+    @apply absolute top-0 left-0 invisible opacity-0;
+    &:checked {
+      + label { @apply before:border-secondary before:bg-white after:bg-secondary; }
+    }
+    &:disabled {
+      + label { @apply cursor-not-allowed opacity-25; filter: none; }
+    }
+  }
+  label {
+    @apply flex gap-4 font-semibold cursor-pointer items-center before:transition-all before:duration-300 before:absolute before:top-0 before:left-0 before:w-5 before:h-5 before:bg-white before:border-2 before:border-black-6 before:rounded-full before:shrink-0 after:transition-all after:duration-300 after:absolute after:top-1 after:left-1 after:w-3 after:h-3 after:bg-white after:rounded-full;
+    span { @apply block leading-tight }
+  }
+  &.rt-dark{
+    label { @apply before:border-black-100; }
+  }
+  &.rt-secondary{
+    label { @apply before:border-secondary; }
+  }
+  &.rt-success{
+    label { @apply before:border-success; }
+  }
+  &.rt-danger{
+    label { @apply before:border-danger; }
+  }
+  // &.rt-sm {
+  //   input {
+  //     &:checked {
+  //       + label { @apply before:border-5 }
+  //     }
+  //     + label { @apply text-xs before:w-5 before:h-5 }
+  //   }
+  // }
+  // &.rt-lg {
+  //   input {
+  //     &:checked {
+  //       + label { @apply before:border-7 }
+  //     }
+  //     + label { @apply text-lg before:w-7 before:h-7 }
+  //   }
+  // }
+}
+/* Theme Radio Styling End here */
+
+
+/* Theme Toggle Check Styling Start here */
+.rt-themeToggleCheck{
+  @apply flex justify-start;
+  input {
+    @apply sr-only;
+    &:checked {
+      ~ label {
+        .rt-toggleActive {
+          @apply block text-black-100;
+          &.rt-secontext-secondary { @apply text-secondary }
+          &.rt-black-100 { @apply text-black-100 }
+          &.rt-secondary { @apply text-secondary }
+          &.rt-success { @apply text-success }
+          &.rt-danger { @apply text-danger }
+        }
+        .rt-toggleInactive { @apply hidden }
+        div {
+          @apply bg-black-100;
+          &.rt-secontext-secondary { @apply bg-secondary }
+          &.rt-black-100 { @apply bg-black-100 }
+          &.rt-secondary { @apply bg-secondary }
+          &.rt-success { @apply bg-success }
+          &.rt-danger { @apply bg-danger }
+        }
+        .rt-toggleDot { @apply translate-x-full }
+      }
+    }
+    &:disabled {
+      + label { @apply cursor-not-allowed opacity-50 }
+    }
+    + label {
+      @apply relative flex cursor-pointer select-none items-center gap-4;
+      > div { @apply bg-black-100 block w-14 h-8 rounded-full transition }
+    }
+    ~ label {
+      .rt-toggleDot { @apply absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white transition; }
+      .rt-toggleActive { @apply hidden transition-all duration-300 }
+      .rt-toggleInactive { @apply block text-black-100 transition-all duration-300 }
+    }
+  }
+}
+/* Theme Toggle Check Styling End here */
+
+
+
+/* Theme Date Time Picker Styling Start here */
+.rt-dateTimePicker{
+  .react-date-picker__calendar { width: 296px;}
+  @apply py-2;
+  .react-date-picker__wrapper { @apply border-0 gap-2 items-center }
+  .react-date-picker__inputGroup { line-height: 1.29; }
+  .react-date-picker__button svg { @apply transition-all duration-300 }
+  .react-date-picker__button:enabled:hover .react-date-picker__button__icon,
+  .react-date-picker__button:enabled:focus .react-date-picker__button__icon { @apply stroke-secondary }
+  .react-calendar__month-view__weekdays {
+    @apply text-xs text-black-100 font-normal;
+    abbr { @apply no-underline }
+  }
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus { @apply text-secondary bg-secondary bg-opacity-15 hover:border-secondary hover:bg-secondary hover:bg-opacity-15 }
+  .react-calendar {
+    @apply border-black-100 border-opacity-30 rounded-lg text-base overflow-hidden;
+    button { @apply bg-white border border-white hover:border-black-100 }
+    .react-calendar__tile {
+      @apply rounded-full text-sm;
+      &:enabled:hover,
+      &:enabled:focus { @apply bg-white border border-black-100 }
+      &.react-calendar__tile--now { @apply bg-black-100 text-white border border-black-100 border-dashed hover:text-white hover:bg-black-100 }
+      &.react-calendar__tile--hasActive { @apply text-white bg-black-100 hover:text-white hover:bg-black-100 }
+      &.react-calendar__tile--active { @apply bg-black-100 hover:bg-black-100 hover:border-black-100 hover:text-white }
+    }
+  }
+  .react-calendar__month-view__days,
+  .react-calendar__year-view__months,
+  .react-calendar__decade-view__years {
+    button { @apply border border-dashed border-white hover:border-secondary }
+  }
+  .react-calendar__year-view__months,
+  .react-calendar__decade-view__years { @apply py-3 }
+  .react-calendar__year-view .react-calendar__tile,
+  .react-calendar__decade-view .react-calendar__tile,
+  .react-calendar__century-view .react-calendar__tile { @apply p-2 }
+}
+/* Theme Date Time Picker Styling End here */
+
+
+
+/* Theme Multi Select and Search Select Styling Start here */
+.rt-multiSelectedList { @apply  w-[calc(100%-60px)] absolute z-10 top-[1px] left-[1px] flex h-[calc(100%-2px)] bg-white overflow-x-scroll items-center gap-2 rounded-l-lg text-sm border-r-0 pl-3 }
+.rt-tag { @apply bg-gray-300 px-2 py-1 rounded-md }
+.rt-actions {
+  @apply absolute top-0 right-0 h-full flex items-center gap-1 pr-2;
+  .rt-btnClearAll,
+  .rt-btnDownArrow {
+    @apply w-5 h-5;
+    svg { @apply w-full h-auto }
+  }
+}
+.rt-multiSelectList {
+  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-lg bg-white shadow-lg ring-1 ring-black-100 focus:outline-none text-sm z-20;
+  li { @apply relative cursor-default select-none py-2 px-4 hover:bg-black-100 hover:text-white flex justify-between }
+  .rt-notFound { @apply select-none px-4 py-2 font-semibold mb-0 }
+}
+/* Theme Multi Select and Search Select Styling End here */
+
+/* Theme Radio V2 Styling Start here */
+.rt-styleVariant {
+  label {
+    @apply border rounded py-2.5 px-7 before:hidden;
+  }
+  input {
+    &:checked {
+      + label { 
+        @apply bg-black-100 text-white;
+        svg {
+          path { @apply fill-white }
+        }
+      }
+    }
+  }
+}
+/* Theme Radio V2 Styling End here */
+
+
+/* custom Radio Styling start here */
+.rt-customRadio{
+  input {
+    &:checked {
+      + label { @apply border-secondary; }
+    }
+  }
+  label{@apply flex-col gap-0 items-start w-full border rounded-lg p-4 pl-12 whitespace-pre-wrap border-black-6 h-full before:top-4 before:left-4 after:top-5 after:left-5;}
+}
+/* custom Radio Styling End here */
+
+/* Select Styling Start here */
+.rt-themeSelect{
+  @apply block text-left flex items-center justify-between p-4 w-full text-sm leading-4 text-black-100 bg-white rounded-md border border-black-6 outline-none focus:outline-none focus:shadow-input_shadow focus:border-secondary focus:ring-0
+}
+.rt-themeSelectList{
+  @apply absolute flex flex-col gap-2.5 z-10 w-[var(--button-width)] rounded-xl border-0 bg-white p-4 shadow-lg right-0 lg:origin-top-right max-h-52 #{!important}
+}
+.rt-listOption{ @apply text-sm text-black-100 cursor-pointer}
+/* Select Styling End here */
+
+

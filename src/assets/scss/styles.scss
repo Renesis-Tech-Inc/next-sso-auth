@@ -1,0 +1,321 @@
+:root {
+  --h1: clamp(2rem, 1rem + 2.0833vi, 3.5rem);   /* 56px */
+  --h2: clamp(1.25rem, calc(1.08rem + 0.35vw), 1.5rem);     /* 24px */
+  --h3: clamp(1.25rem, 1.0481rem + 0.8974vi, 2.125rem);   /* 34px */
+  --h4: clamp(1.5rem, calc(1.16rem + 0.71vw), 2rem);      /* 32px */
+  --h5: clamp(1.13rem, calc(0.7rem + 0.88vw), 1.75rem);   /* 28px */
+  --h6: clamp(1.13rem, calc(0.87rem + 0.53vw), 1.5rem);   /* 24px */
+  --p: clamp(0.88rem, calc(0.79rem + 0.18vw), 1rem);      /* 16px */
+  --fs-104: clamp(2.813rem, 1.8883rem + 3.8835vw, 6.5rem);
+  --fs-100: clamp(2.5rem, calc(-0.04rem + 5.3vw), 6.25rem);
+  --fs-88: clamp(3.13rem, calc(1.52rem + 3.35vw), 5.5rem);
+  --fs-80: clamp(2.81rem, calc(1.33rem + 3.09vw), 5rem);
+  --fs-72: clamp(2.25rem, calc(0.73rem + 3.18vw), 4.50rem);
+  --fs-70: clamp(2.25rem, calc(0.81rem + 3vw), 4.38rem);
+  --fs-60: clamp(2rem, calc(0.784rem + 2.5366vw), 3.7963rem);
+  --fs-56: clamp(2.25rem, calc(1.4rem + 1.77vw), 3.5rem);
+  --fs-48: clamp(2rem, calc(1.32rem + 1.41vw), 3rem);
+  --fs-40: clamp(1.75rem, calc(1.24rem + 1.06vw), 2.50rem);
+  --fs-36: clamp(1.63rem, calc(1.2rem + 0.88vw), 2.25rem);
+  --fs-34: clamp(1.625rem, calc(0.66rem + 1.24vw), 2.13rem);
+  --fs-32: clamp(1.75rem, calc(0.66rem + 1.24vw), 2rem);
+  --fs-30: clamp(1.5rem, calc(1.25rem + 0.53vw), 1.88rem);
+  --fs-28: clamp(1.5rem, calc(1.3265rem + 0.3619vw), 1.7563rem);
+  --fs-26: clamp(1.38rem, calc(1.21rem + 0.35vw), 1.63rem);
+  --fs-24: clamp(1.25rem, calc(1.08rem + 0.35vw), 1.5rem); 
+  --fs-22: clamp(1.13rem, calc(0.96rem + 0.35vw), 1.38rem);
+  --fs-20: clamp(1rem, calc(0.83rem + 0.35vw), 1.25rem);
+  --fs-18: clamp(1rem, calc(0.92rem + 0.18vw), 1.13rem);
+  --fs-16: clamp(1rem, calc(1rem + 0.18vw), 1rem);
+  --fs-14: clamp(14px, calc(14px + 0.18vw), 14px);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { @apply flex flex-col h-full font-ubuntu overflow-x-hidden leading-tight font-normal text-black-52 scroll-smooth }
+
+h1, h2, h3, h4, h5, h6 { @apply text-black-100 }
+h1 { @apply text-h1 }
+h2 { @apply text-h2 }
+h3 { @apply text-h3 }
+h4 { @apply text-h4 }
+h5 { @apply text-h5 }
+h6 { @apply text-h6 }
+  
+p { @apply font-normal; }
+a { @apply text-primary ease-in-out transition-all duration-300; }
+  
+/* =============================================
+                Theme Styling
+  ============================================= */
+  .theme__box { @apply flex flex-col w-full rounded-lg border border-black-6 }
+  .theme__head { @apply mb-8 w-full flex gap-2 flex-col }
+  .theme__title { @apply w-full flex flex-col }
+  .title__description { @apply text-sm text-black-64 }
+  // .visa__card__icon { @apply w-10 h-6 text-cobalt border border-SilverChalice-500 rounded-md }
+  .password__eye { @apply absolute top-1/2 -translate-y-1/2 right-4 sm:text-2xl text-xl text-black-44 cursor-pointer }
+  // .btn__vieWall { @apply text-mediumslateblue-400 bg-mediumslateblue-300 bg-opacity-10 border-mediumslateblue-300 border-opacity-10 rounded-xl hover:bg-mediumslateblue-300 hover:text-mediumslateblue-400 hover:bg-opacity-20 }
+  // .notify__doted { @apply w-3 h-3 rounded-full border-2 border-white bg-alizarin shrink-0 }
+  .two_cols { @apply flex lg:flex-row flex-col gap-5 }
+  .four__cols { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 }
+/* =============================================
+            Theme Loader Styling
+  ============================================= */
+  .theme__loader { @apply fixed left-0 top-0 z-20 flex min-h-screen w-full items-center justify-center bg-[rgba(0,0,0,0.9)]}
+/* ========================================================================
+                              Dashboard
+========================================================================== */
+/* =============================================
+            Profile Dropdown Styling
+============================================= */
+.profile__img { @apply h-10 w-10 overflow-hidden rounded-full }
+.profile__dropdown__menu ul li a { @apply flex items-center gap-2 text-base text-black-100 p-2 hover:bg-secondary hover:text-white rounded-md transition-all ease-in-out duration-500 }
+.profile__dropdown__menu ul li a:hover i svg { @apply text-white transition-all ease-in-out duration-500 }
+/* =============================================
+            Notify Dropdown Styling
+============================================= */
+.notify__dropdown__button { @apply w-10 h-10 flex items-center justify-center rounded-full border border-black-6 hover:shadow-input_shadow hover:bg-white transition-all ease-in-out duration-500 }
+/* =============================================
+            Dashboard Styling
+============================================= */
+.created__chart__box { @apply lg:order-1 order-2 }
+.created__chart__box .theme__title { @apply border-b border-black-6 p-6 }
+.document__statistiic { @apply flex flex-col gap-5 w-full lg:max-w-72 lg:order-2 }
+.project__card { @apply p-4 hover:shadow-card_shadow transition-all ease-in-out duration-500 }
+.project__card a { @apply flex flex-col gap-4 }
+.project__card h3 { @apply text-base w-full max-w-56 }
+.Processing__heading { @apply rounded-full py-1 px-2.5 text-xs leading-4 text-black-100 }
+.chart__box { @apply 2xl:p-6 px-2 py-6 }
+.create_project_head { @apply flex justify-between lg:items-center mb-8 flex-wrap flex-col lg:flex-row lg:flex-nowrap lg:gap-0 gap-4 }
+/* ========================================================================
+                              Projects
+========================================================================== */
+.rt__projects{ @apply flex flex-col }
+.rt__projects__body{ @apply grow flex flex-col }
+/* ========================================================================
+                             OnBoarding
+========================================================================== */
+/* =============================================
+            OnBoarding Styling
+============================================= */
+.rt-onboarding{ @apply flex flex-col w-full max-w-664 py-20 px-8 mx-auto }
+.rt-onboarding{
+  .rt-stepperContent{
+    h2{ @apply text-xl mb-3 text-center; }
+    p{  @apply text-sm leading-5 text-black-48 mb-8 text-center; }
+  }
+  .rt-stepperBtns{
+    @apply flex flex-col items-center justify-center;
+    .btn{ @apply w-full mb-8; }
+    .rt-backBtn{ @apply static bg-primary text-white p-4 w-full mb-5 lg:m-0 lg:w-auto lg:p-0 lg:text-primary lg:bg-transparent lg:absolute items-center justify-center rounded-md cursor-pointer left-[108px] flex #{!important} }
+  }
+} 
+.progress-bar {@apply mb-28 }
+.progress-bar ul { @apply flex justify-between list-none gap-2 }
+.progress-bar ul li { @apply w-1/4 h-2 bg-black-12 rounded-20 }
+.progress-bar ul li.active { @apply bg-black-100 }
+.progress-bar ul li.completed { @apply bg-secondary }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  @apply w-full cursor-pointer outline-none h-2 border-0 relative rounded-full;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  @apply w-full h-2 bg-transparent rounded-full
+}
+
+input[type="range"]::-moz-range-track {
+  @apply w-full h-2 rounded-full bg-[#EDEDED]
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.12);
+  @apply h-6 w-6 bg-secondary rounded-full border-4 border-white relative -mt-2 z-1 
+}
+
+input[type="range"]::-moz-range-thumb {
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.12);
+  @apply h-6 w-6 bg-secondary rounded-full border-4 border-white relative -mt-2 z-1
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="range"]::-moz-range-progress {
+  @apply h-2 bg-secondary rounded-full
+}
+
+/* For Internet Explorer and Edge */
+input[type="range"]::-ms-track {
+  @apply w-full h-2 bg-transparent border-transparent text-transparent
+}
+
+input[type="range"]::-ms-fill-lower {
+  @apply bg-secondary rounded-full
+}
+
+input[type="range"]::-ms-fill-upper {
+  @apply rounded-full bg-[#EDEDED]
+}
+
+input[type="range"]::-ms-thumb {
+  @apply h-6 w-6 bg-secondary rounded-full border-4 border-white relative -mt-2 z-1
+}
+
+input[type="range"]::-ms-tooltip { @apply hidden; }
+.rt-rangeContent{ @apply flex items-center justify-between mt-2 }
+.rt-rangeContent span{ @apply text-black-48 text-xs font-medium }
+/* =============================================
+            Create Project Modal Styling
+============================================= */
+.rt-createProjectModal{ 
+  h2{ @apply font-bold mb-3;}
+  p{@apply text-base text-black-64 mb-7.5 text-left ;}
+  .rt-formGroup{@apply mb-6 w-full;}
+  h3{ @apply text-base font-medium mb-3;}
+  .selectType{
+    @apply grid-cols-1 sm:grid-cols-2;
+    .rt-customRadio{
+      label{
+        @apply pl-4 text-left;
+        &::before,
+        &:after{
+          @apply w-0 h-0 border-0;
+        }
+        p{@apply text-sm leading-5.5 text-black-64 mb-0}
+        .rt-icon{
+          @apply w-12 h-12 rounded-xl flex items-center justify-center bg-deepOrange/10 mb-4
+        }
+      }
+    }
+  }
+}
+/* =============================================
+            Create Project Styling
+============================================= */
+.rt-createProject{ @apply w-full max-w-1500 grow flex flex-col; }
+.rt-createProject{
+  .rt-stepperContent{ @apply flex flex-col grow; }
+  .rt-stepperBtns{ 
+    @apply flex justify-end py-10;
+    .btn{@apply min-w-40}
+    .rt-backBtn{@apply top-9 left-16 sm:left-5 flex}
+  }
+}
+.selectType{ @apply w-full gap-3 grid grid-cols-1 xl:grid-cols-2 mb-10 }
+.selectCategories{ 
+  @apply w-full gap-5 grid-cols-1 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5;
+  .rt-customRadio{
+    label{@apply pt-6 before:top-6 after:top-7 }
+  }
+}
+.rt-uploadBtn{
+  input{@apply absolute opacity-0 invisible w-0}
+}
+.rt-fileUploader{
+  @apply w-full h-[242px];
+  label{ @apply w-full h-full cursor-pointer flex flex-col items-center justify-center max-w-full rounded-3xl border border-dashed border-black-12 bg-black-4 }
+  strong{ @apply text-base }
+  span{ @apply text-xs leading-5.5 text-black-48}
+}
+.document_icon { @apply w-8 h-8 rounded-full flex items-center justify-center text-white bg-danger; }
+.rt-fileUploadLoading{
+  @apply grow flex justify-center items-center flex-col;
+  img{@apply mb-10}
+  h2{@apply mb-3}
+  p{@apply text-sm}
+  .progress-bar{
+    @apply w-full max-w-248 mt-8;
+    ul{
+      li{
+        @apply w-1/2 relative overflow-hidden;
+        span{@apply absolute top-0 left-0 h-full bg-success transition-all duration-500 ease-out}
+      }
+    }
+  }
+}
+.rt-styleChange{
+  .rt-nextBtn{@apply absolute bottom-110 left-1/2 -translate-x-1/2 2xxl:-translate-x-3/4}
+}
+.rt-pdfView{@apply flex gap-5 bg-black-8 p-5}
+.rt-pdfArea{@apply grow flex gap-5}
+.rt-pdfPages_list{@apply flex flex-col gap-5.5 shrink-0 overflow-y-auto}
+.rt-pdfPage_wrapper{@apply flex flex-col gap-5.5 grow overflow-y-auto}
+.react-pdf__Page{@apply bg-transparent #{!important};}
+.react-pdf__Page__canvas{@apply mx-auto w-full max-w-680 #{!important}}
+.hp-pdfDownloadBox{@apply flex flex-col max-w-279 w-full;}
+.rt-downloadInfoBox{
+  @apply rounded-xl bg-white p-4 w-full;
+  ul{
+    @apply list-none flex flex-wrap gap-y-6;
+    li{
+      @apply flex flex-col basis-1/2 gap-3;
+      &:first-child{
+        @apply basis-full
+      }
+      strong{
+        @apply text-sm text-black-100 font-normal;
+      }
+      span{
+        @apply text-sm text-black-36;
+      }
+    }
+  }
+}
+
+/* =============================================
+            Profile Styling
+============================================= */
+.rt-headingArea{
+ @apply flex flex-col sm:flex-row sm:justify-between sm:items-center gap-5 mb-6 mt-4;
+}
+.rt-tabs{
+  @apply flex gap-32
+}
+.rt-tablist{
+  @apply flex flex-col gap-2 items-start max-w-280 w-full;
+  button {
+    @apply px-4 py-5 border border-black-6 rounded-lg text-sm text-primary w-full text-left;
+    &.active{
+      @apply bg-black-6
+    }
+  }
+}
+.rt-tabContent{
+  @apply grow
+}
+.rt-tabpanel{
+  @apply max-w-580 w-full
+}
+.rt-tabpanel h3{
+  @apply text-xl mb-3 font-bold
+}
+.rt-tabpanel p{
+  @apply text-sm mb-8
+}
+.rt-profilePicture{
+  @apply mb-8 flex gap-6
+}
+.rt-uploadArea{
+  @apply flex flex-col
+}
+.rt-uploadArea span{
+  @apply block text-sm leading-5 text-black-52
+}
+.rt-uploadArea strong{
+  @apply block text-sm leading-5 font-medium text-primary
+}
+
+@import "@assets/scss/components/form";
+@import "@assets/scss/components/elements";
+@import "@assets/scss/theme";

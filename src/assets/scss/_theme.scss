@@ -1,0 +1,90 @@
+/* All Layout Style start here */
+.wrapper { @apply flex grow transition-all ease-in-out duration-700 font-ubuntu }
+// .wrapper__full { @apply !p-0 }
+.open__wrapper { @apply pl-6 md:pl-[16.5rem] }
+.close__wrapper { @apply pl-6 md:pl-[6.5rem] }
+.bg__wrapper { 
+  @apply bg-main-bg bg-no-repeat bg-cover overflow-hidden;
+  .main { @apply p-5 bg-[#14161C] }
+}
+.theme_body { @apply overflow-y-auto h-[calc(100%-5.625rem)] rt-hideScrollbar }
+/* All Layout Style end here */
+
+/* Header Style start here */
+.header { @apply w-full flex gap-6 mb-6 items-center justify-between }
+/* Header Style end here */
+
+/* Sidebar Style start here */
+.side__bar { @apply w-300 fixed rounded-r-[2rem] bg-main-bg bg-cover z-10 h-screen sm:h-auto sm:w-20 xl:w-300 shrink-0 py-6 px-3.5 xl:px-5 sm:bg-gray-900 sm:static sm:rounded-none transition-all ease-in-out duration-500 -translate-x-80 sm:translate-x-0}
+.sidebar__logo__box { 
+  @apply flex mb-10 overflow-hidden justify-start sm:justify-center xl:justify-start;
+  a { @apply flex gap-3 items-center } 
+} 
+.sidebar__logo__text { @apply relative text-white leading-6 top-0 transition-all ease-in-out duration-500 sm:hidden xl:inline-block }
+.toggle__button { 
+  @apply w-6 h-6 flex items-center justify-center rounded-full bg-white border-0 text-primary absolute shadow-md top-[2.3rem] -right-3; 
+  svg { @apply transition-all duration-300 ease-in-out; }
+}
+.sidebar__nav { 
+  @apply h-[calc(100%-65px)] grow flex flex-col space-y-2; 
+  li {
+    @apply relative;
+    a { 
+      @apply flex items-center text-white gap-3 p-3 rounded-xl transition-all ease-in-out duration-500 hover:bg-white/10 border border-transparent hover:border-white/40 relative; 
+      span { @apply whitespace-nowrap transition-all duration-200 sm:opacity-0 sm:invisible xl:visible xl:opacity-100; }
+      svg { @apply transition-all duration-[0.3s] ease-in-out; }
+      &:hover span { @apply text-white ;}
+    }
+    &:hover{
+      .tooltip {
+        @apply top-1/2 opacity-0 sm:opacity-100 xl:opacity-0 pointer-events-auto transition-all -translate-y-1/2
+      }
+    }
+  }
+}
+.tooltip {
+  @apply whitespace-nowrap z-3 top-0 flex opacity-0 text-base text-black-100 min-h-10 py-1.5 px-3 absolute bg-white rounded-md items-center pointer-events-none left-[calc(100%+6px)] justify-center shadow-md ;
+  &:before{
+    @apply top-[46%] right-[97%] w-3.5 h-3.5 absolute rounded-[0_0_0_4px] rotate-45 -translate-y-1/2;
+  }
+}
+
+.rt-menuBtn{
+  @apply text-3xl text-primary block sm:hidden;
+}
+.rt-crossBtn{
+  @apply text-2xl text-white block sm:hidden absolute right-5 top-5;
+}
+.openSideBar .side__bar{
+  @apply translate-x-0
+}
+
+/* Main Style start here */
+.main { @apply flex relative flex-grow }
+/* Main Style end here */
+
+
+/***************************************
+  Authentication Module
+  Authentication Style start here
+****************************************/
+.textOutline{ text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+.otpInput-box > div{ @apply gap-8 }
+.otpInput-box input{ @apply border h-24 border-black-6 rounded-2xl text-2xl text-black-100 w-full #{!important};}
+.login-sidebar{ @apply hidden lg:flex flex-col w-576 rounded-3xl p-16 bg-no-repeat bg-cover relative }
+.rt-authContent{ @apply bg-uth-bg2 bg-no-repeat bg-cover lg:bg-none relative after:absolute after:w-full after:h-full after:bg-black-100/30 lg:after:bg-transparent}
+.rt-authContentHolder { @apply flex flex-col max-w-600 lg:max-w-680 items-center justify-center w-full grow mx-auto py-8 px-5 lg:p-8 relative z-1}
+.rt-authContentHolder form{@apply w-full}
+.rt-uthImage{ @apply absolute right-[-45%] 2xl:right-[-61%] bottom-[-11px] w-600 2xl:w-735 }
+.rt-uthImage img{ @apply w-full }
+.rt-backBtn{ @apply absolute top-74 left-30 hidden lg:flex items-center text-sm font-medium text-primary gap-3}
+/***************************************
+  Authentication Style end here
+***************************************/
+
+
+
+
+
+
+
